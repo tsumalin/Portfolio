@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            width: 100%;
+            height: 100vh;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left, .right{
+            width: 600px;
+            height: 400px;
+            border: 3px solid palevioletred;
+            border-radius: 30px;
+            background-color: pink;
+            margin: 50px;
+        }
+
+        .grading-system {
+            padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 80px;            
+        }
+        /* .grading-system h1 h2 input button {
+            display: block;
+            margin: 20px;
+        } */
+        .grading-standard {
+            padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 30px;          
+        }
+
+        button{
+            margin-top: 15px;
+        }
+
+        .grading-standard h2 {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="left">
+            <div class="grading-system">
+                <h1>成績分級系統</h1>
+                <h2>請輸入考試成績</h2>
+                <input type="text" placeholder="請輸入數字" value="">
+                <button>成績計算</button>
+                <p id="output"></p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="grading-standard">
+                <h2>成績參考標準</h2>
+                <p>0~59 => 您的成績不及格 </p>
+                <p>60~69 => 您的成績是丁級 </p>
+                <p>70~79 => 您的成績是丙級 </p>
+                <p>80~89 => 您的成績是乙級 </p>
+                <p>90~99 => 您的成績是甲級 </p>
+                <p>100 => 您的成績是優級 </p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // who
+        // 輸入框的資料＋按鈕觸發 ＋ 輸出結果文字
+
+        const grade_input = document.querySelector("input")
+        const btn = document.querySelector("button")
+        const output = document.querySelector("#output")
+        console.log(grade_input,btn,output)
+
+            // 0908 4th video 
+
+            // btn.onclick = function() { 
+            //     let score = grade_input.value
+
+            //     let result
+            //     // 若要執行“輸入內容有問題，請重新輸入“
+            //     // 方法一
+            //     if (score > 100) {
+            //         result = "輸入內容有問題，請重新輸入"
+            //     }else if (score == 100) {
+            //         result = "優級"
+            //     }else if (score >= 90) {
+            //         result ="甲級"
+            //     }else if (score >= 80) {
+            //         result = "乙級"
+            //     }else if (score >= 70) {
+            //         result = "丙級"
+            //     }else if (score >= 60) {
+            //         result = "丁級"
+            //     }else {
+            //         result = "不及格"
+
+            //         output.innerHTML = "您輸入的分數是 " + score + "分，您學期成績是: " + result
+            //     }
+            // }
+
+            btn.onclick = function() { 
+                let score = grade_input.value
+
+                let result
+                // 若要執行“輸入內容有問題，請重新輸入“
+                // 方法二
+                // 在else裡面包 if 比較好
+                // but why?
+                // if 之後有output輸出，若使用方法一，輸入錯誤的值，也一樣會出現“您輸入的分數是 " + score + "分，您學期成績是:“ 這句話在網頁上
+                // 但我們只是要“輸入內容有問題，請重新輸入“
+                if (score > 100) {
+                    // result = "輸入內容有問題，請重新輸入" 使用方法二2的話，這行不需要
+                    output.innerHTML = "輸入內容有問題，請重新輸入"
+                }else {
+                    if (score == 100) {
+                    result = "優級"
+                    }else if (score >= 90) {
+                    result ="甲級"
+                    }else if (score >= 80) {
+                    result = "乙級"
+                    }else if (score >= 70) {
+                    result = "丙級"
+                    }else if (score >= 60) {
+                    result = "丁級"
+                    }else {
+                    result = "不及格"
+                    }
+                    output.innerHTML = "您輸入的分數是 " + score + "分，您學期成績是: " + result
+                }    
+            }
+           
+                    
+            
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+@import '_var';
+
+@mixin font($ff: '標楷體', $minfz: 12px, $nowfz: 1.5vw, $maxfz: 64px, $fw: normal, $c: #000) {
+    font-family: $ff;
+    font-size: clamp($minfz, $nowfz, $maxfz);
+    font-weight: $fw;
+    color: $c;
+}
+
+@mixin picsize($minW, $nowW, $maxW) {
+    width: clamp($minW, $nowW, $maxW);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+main {
+    .sub-content {
+        .bgc-black-box {
+            @include picsize(205px, 32.76vw, 629px);
+            height: 165px;
+            position: absolute;
+            background-color: #000;
+            top: 129px;
+            left: 8.91%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                @include font(ryumin, 0px, 6.5vw, 125px, 400, white);
+            }
+        }
+        p {
+            @include font(hind, 20px, 2.08vw, 40px, 400, black);
+            @include picsize (50px,48.9vw,939px);
+                position: absolute;
+                top: 320px;
+                left: 9.01%;
+                line-height: 70px;
+        }
+        .upper-right-portrait {
+            @include picsize(172px, 22.4vw, 430px);
+            position: absolute;
+            top: 86px;
+            left: 72.76%;
+        }
+        .upper-left-portrait {
+            @include picsize(139px, 15.1vw, 290px);
+            position: absolute;
+            top: 170px;
+            left: 53.64%;
+        }
+        .lower-right-portrait {
+            @include picsize(135px, 15.05vw, 289px);
+            position: absolute;
+            top: 545px;
+            left: 64.48%;
+        }
+        .lower-middle-portrait {
+            @include picsize(115px, 15.1vw, 304px);
+            position: absolute;
+            top: 600px;
+            left: 49.73%;
+        }
+        .lower-left-portrait-1 {
+            @include picsize(116px, 15.05vw, 289px);
+            position: absolute;
+            top: 532px;
+            left: 33.44%;
+        }
+        .lower-left-portrait-2 {
+            @include picsize(116px, 15.05vw, 289px);
+            position: absolute;
+            top: 665px;
+            left: 19.84%;
+        }
+    }
+}

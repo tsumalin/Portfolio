@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img src="https://play-lh.googleusercontent.com/agtUU5kqFOhs7bBswUwWx9FDVXsir9aojzV_CjLiZZGoI98T05NOZ6ajAGC8McW4uQ" alt="" class="husky">
+
+
+    <script>      
+        // 圖片切換thoughts
+        // 如果點了husky 就換變成beagle
+        // 如果點了beagle 就換變成husky
+        // 以上思考錯誤
+
+        // 設定husky圖片變數
+        // 設定boolean true/false
+        // 設定點選husky圖片功能，如果src meets husky = true 則顯示husky
+        //                     如果src meets husky = false 則顯示beagle
+
+        var husky = document.querySelector(".husky")
+        var onOff = true
+        
+        husky.onclick = function() {
+            if (onOff) {
+                husky.src = "https://g.udn.com.tw/community/img/PSN_PHOTO/ntlutw/f_5356211_1.JPG"
+                onOff = false
+            }else {
+                husky.src = "https://play-lh.googleusercontent.com/agtUU5kqFOhs7bBswUwWx9FDVXsir9aojzV_CjLiZZGoI98T05NOZ6ajAGC8McW4uQ"
+                onOff = true
+            }
+        } 
+
+        
+            
+        
+
+        
+
+    </script>
+</body>
+</html>

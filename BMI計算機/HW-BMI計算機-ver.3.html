@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ver 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            background-image: url(./pics/space.jpeg);
+            background-size: cover;
+            background-position: top;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .bmi-box {
+            width: 700px;
+            height: 360px;
+            border: 5px solid rgb(255, 255, 255);
+            margin: auto;
+            margin-top: 60px;
+            border-radius: 30px;
+            box-shadow: 3px 3px 50px rgb(70, 255, 255),
+                        -3px -3px 30px red;
+        }
+
+        .result-box {
+            width: 700px;
+            border: 5px solid rgb(255, 255, 255);
+            margin: auto;
+            margin-top: 60px;
+            border-radius: 30px;
+            box-shadow: 3px 3px 50px rgb(70, 255, 255),
+                        -3px -3px 30px red;
+        }
+
+        h1, h2{
+            color: aqua;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 70px;
+        }
+
+        .enter-value {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            margin-top: 20px;
+            padding: 5px;
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        ::placeholder {
+            color: rgb(174, 164, 164);
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center; 
+            align-items: flex-end;
+            margin-top: 20px;
+            
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 5px 12px;
+            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 30px;
+            text-align: center;
+            border: none;
+            
+        }
+
+        .calculate {
+            background-color: rgb(230, 50, 230);
+            color: white;
+            margin-right: 18px;
+        }
+
+        .clear {
+            background-color: rgb(111, 122, 147);
+            color: white;
+        }
+
+        .calculate:hover, .clear:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        .result-box{
+            opacity: 0;
+        }
+
+        .result-title {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .result-context {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bmi-box">
+        <h1>BMI Calculator</h1>
+        <div class="enter-value">
+            <label for=""><input type="text" placeholder="Height(CM)" id="height"></label>
+            <label for=""><input type="text" placeholder="Weight(KG)" id="weight"></label>
+        </div>
+        <div class="btn">
+            <button class="calculate">Calculate</button>
+            <button class="clear">Clear</button>
+        </div>
+    </div>
+    <div class="result-box">
+        <h2 class="result"></h2>
+        <p class="result-title"></p>
+        <p class="result-context"></p>
+    </div>
+
+    <script>
+        let calculate = document.querySelector(".calculate")
+        let result = document.querySelector(".result")
+        let title = document.querySelector(".result-title")
+        let context = document.querySelector(".result-context")
+        let height_status = false, weight_status = false
+
+
+        calculate.onclick = function() {
+            let height = document.querySelector("#height").value
+            let weight = document.querySelector("#weight").value
+
+            if (height === "" || isNaN(height) || height <= 0) {
+                window.alert(" Height/ Weight is invalid! ")
+                    // result.innerHTML = "X"
+                    // title.innerHTML = "Invalid"
+                    // context.innerHTML = ""
+                    return
+                    
+                }else {
+                    height_status = true
+                    
+                }
+
+            if (weight === "" || isNaN(weight) || weight <= 0) {
+                window.alert(" Weight/ Height is invalid! ")
+                    // result.innerHTML = "X"
+                    // title.innerHTML = "Invalid"
+                    // context.innerHTML = ""
+                    return
+                }else {
+                    weight_status = true
+                    
+                }
+
+            // let result_box = document.querySelector(".result-box") 
+            // result_box.style.opacity = 1;
+
+            let bmi = (weight / ((height * height)/10000)).toFixed(2)
+            console.log(bmi);
+            
+            if (bmi < 18.5) {
+                result.innerHTML = "BMI = " + bmi
+                title.innerHTML = "WARNING!"
+                context.innerHTML = "Under Weight"
+            }else if (bmi >= 18.5 && bmi < 24) {
+                result.innerHTML = "BMI = " + bmi
+                title.innerHTML = "Perfect!"
+                context.innerHTML = ""
+            }else if (bmi >= 24 && bmi < 30) {
+                result.innerHTML = "BMI =" + bmi
+                title.innerHTML = "A Little Chubby"
+                context.innerHTML = "Exercise & Eat Healty!"
+            }else if (bmi >= 30 && bmi < 35) {
+                result.innerHTML = "BMI = " + bmi
+                title.innerHTML = "WARNING!"
+                context.innerHTML = "Over Weight! Stop Eating Junk Food!"
+            }else {
+                result.innerHTML = "BMI = " + bmi
+                title.innerHTML = "WARNNING!"
+                context.innerHTML = "Obesed! Go to see a DOCTOR!"
+            }
+            // 
+            let result_box = document.querySelector(".result-box") 
+            result_box.style.opacity = 1;
+
+
+            // if (height === "" || isNaN(height) || height <= 0) {
+            //     window.alert("X")
+            //         result.innerHTML = "X"
+            //         title.innerHTML = "Invalid"
+            //         context.innerHTML = ""
+                    
+            //     }else {
+            //         height_status = true
+            //     }
+
+            // if (weight === "" || isNaN(weight) || weight <= 0) {
+            //         result.innerHTML = "X"
+            //         title.innerHTML = "Invalid"
+            //         context.innerHTML = ""
+            //     }else {
+            //         weight_status = true
+            //     }
+
+            // let result_box = document.querySelector(".result-box") 
+            // result_box.style.opacity = 1;
+        }
+
+        let clear = document.querySelector(".clear")
+        clear.onclick = function (){
+        window.location.reload()
+
+        }
+    </script>
+</body>
+</html>

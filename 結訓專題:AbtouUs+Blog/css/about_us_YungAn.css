@@ -1,0 +1,86 @@
+@font-face {
+  font-family: didot;
+  src: url(/font-family/Didot_Regular.ttf);
+}
+@font-face {
+  font-family: ryumin;
+  src: url(/font-family/GenRyuMin-M.ttc);
+}
+@font-face {
+  font-family: hind;
+  src: url(/font-family/Hind-Regular.ttf);
+}
+@font-face {
+  font-family: playfair;
+  src: url(/font-family/PlayfairDisplay-VariableFont_wght.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main .sub-content .bgc-black-box {
+  width: clamp(205px, 32.76vw, 629px);
+  height: 165px;
+  position: absolute;
+  background-color: #000;
+  top: 129px;
+  left: 8.91%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .sub-content .bgc-black-box h2 {
+  font-family: ryumin;
+  font-size: clamp(0px, 6.5vw, 125px);
+  font-weight: 400;
+  color: white;
+}
+main .sub-content p {
+  font-family: hind;
+  font-size: clamp(20px, 2.08vw, 40px);
+  font-weight: 400;
+  color: black;
+  width: clamp(50px, 48.9vw, 939px);
+  position: absolute;
+  top: 320px;
+  left: 9.01%;
+  line-height: 70px;
+}
+main .sub-content .upper-right-portrait {
+  width: clamp(172px, 22.4vw, 430px);
+  position: absolute;
+  top: 86px;
+  left: 72.76%;
+}
+main .sub-content .upper-left-portrait {
+  width: clamp(139px, 15.1vw, 290px);
+  position: absolute;
+  top: 170px;
+  left: 53.64%;
+}
+main .sub-content .lower-right-portrait {
+  width: clamp(135px, 15.05vw, 289px);
+  position: absolute;
+  top: 545px;
+  left: 64.48%;
+}
+main .sub-content .lower-middle-portrait {
+  width: clamp(115px, 15.1vw, 304px);
+  position: absolute;
+  top: 600px;
+  left: 49.73%;
+}
+main .sub-content .lower-left-portrait-1 {
+  width: clamp(116px, 15.05vw, 289px);
+  position: absolute;
+  top: 532px;
+  left: 33.44%;
+}
+main .sub-content .lower-left-portrait-2 {
+  width: clamp(116px, 15.05vw, 289px);
+  position: absolute;
+  top: 665px;
+  left: 19.84%;
+}/*# sourceMappingURL=about_us_YungAn.css.map */
